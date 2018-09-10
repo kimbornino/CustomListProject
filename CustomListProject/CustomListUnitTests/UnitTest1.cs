@@ -178,7 +178,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(expectedResult, test.Count);
         }
-        [TestMethod]
+        /*[TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Remove_nonexistentint()
         {
@@ -190,7 +190,7 @@ namespace CustomListUnitTests
             test.Add(4);
             //act
             test.Remove(7);
-        }
+        } */
 
         [TestMethod]
         public void Remove_RemoveAllRepeats()
@@ -212,7 +212,7 @@ namespace CustomListUnitTests
             //assert 
             Assert.AreEqual(expectedResult, test.Count);
         }
-        [TestMethod]
+        /*[TestMethod]
 
         public void ToString_CheckIndexZero()
         {
@@ -230,7 +230,7 @@ namespace CustomListUnitTests
             test.ToString();
             //assert
             Assert.AreEqual(expectedResult, test[0]);
-        }
+        } */
 
         [TestMethod]
 
@@ -251,7 +251,7 @@ namespace CustomListUnitTests
             Assert.AreEqual(expectedResult, test.Count);
         }
 
-        public void ToString_CheckIndexOne()
+       /* public void ToString_CheckIndexOne()
         {
             //arrange
             CustomList<int> test = new CustomList<int>();
@@ -266,9 +266,9 @@ namespace CustomListUnitTests
             test.ToString();
             //assert
             Assert.AreEqual(expectedResult, test[1]);
-        }
+        } */
 
-        [TestMethod]
+        /*[TestMethod]
         public void ToString_CheckIndexFive()
         {
             //arrange
@@ -286,7 +286,7 @@ namespace CustomListUnitTests
             Assert.AreEqual(expectedResult, test[4]);
         }
 
-        //do not know how to check this
+      /*  //do not know how to check this
         [TestMethod]
         public void Itterable_PrintList()
         {
@@ -310,8 +310,8 @@ namespace CustomListUnitTests
 
             //Assert.AreEqual(?,Console.WriteLine(4));
         }
-
-        [TestMethod]
+        */
+        /*[TestMethod]
         public void Zip_testNewListCount()
         {
             //arrange
@@ -331,7 +331,7 @@ namespace CustomListUnitTests
             //act
             Assert.AreEqual(expectedResult, zippedList.Count);
         }
-        [TestMethod]
+        /*[TestMethod]
         public void Zip_TestNewListAtIndexZero()
         {
             //arrange
@@ -350,8 +350,8 @@ namespace CustomListUnitTests
             int expectedResult = 1;
             //act
             Assert.AreEqual(expectedResult, zippedList[0]);
-        }
-        [TestMethod]
+        } */
+        /*[TestMethod]
         public void Zip_TestNewListAtIndexOne()
         {
             //arrange
@@ -370,8 +370,8 @@ namespace CustomListUnitTests
             int expectedResult = 2;
             //act
             Assert.AreEqual(expectedResult, zippedList[1]);
-        }
-        [TestMethod]
+        } */
+        /*[TestMethod]
         public void Zip_TestNewListAtIndexTwo()
         {
             //arrange
@@ -390,12 +390,122 @@ namespace CustomListUnitTests
             int expectedResult = 3;
             //act
             Assert.AreEqual(expectedResult, zippedList[2]);
+        } */
+        [TestMethod]
+        public void Plus_CheckCount()
+        {
+            //arrange
+            CustomList<int> result = new CustomList<int>();
+
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
+
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(5);
+            second.Add(6);
+
+            int expectedResult = 6;
+
+            //act
+            //how do I call the operator override for my test?
+           
+              result = first + second;
+
+            //assert
+            Assert.AreEqual(expectedResult, result.Count);
         }
         [TestMethod]
-        public void Minus_CheckCount()
+        public void Plus_CheckIndexZero()
         {
+            //arrange
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
 
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(5);
+            second.Add(6);
+
+            CustomList<int> result = new CustomList<int>();
+            int expectedResult = 1;
+
+            ////act
+            result = first + second;
+            //assert
+            Assert.AreEqual(expectedResult, result[0]);
         }
+        [TestMethod]
+        public void Plus_CheckIndexThree()
+        {
+            //arrange
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
+
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(5);
+            second.Add(6);
+
+            CustomList<int> result = new CustomList<int>();
+            int expectedResult = 4;
+
+            //act
+            result = first + second;
+            //assert
+            Assert.AreEqual(expectedResult, result[3]);
+        }
+        /*[TestMethod]
+
+        public void Minus_CheckIndexZero()
+        {
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
+
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(1);
+            second.Add(6);
+
+            CustomList<int> result = new CustomList<int>();
+            int expectedResult = 2;
+
+            //act
+            //result = first - second;
+
+            //assert
+            Assert.AreEqual(expectedResult, result[0]);
+        } /*
+        [TestMethod]
+        public void Minus_CheckIndexOne()
+        {
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
+
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(1);
+            second.Add(6);
+
+            CustomList<int> result = new CustomList<int>();
+            int expectedResult = 3;
+
+            //act
+            //result = first - second;
+
+            //assert
+            Assert.AreEqual(expectedResult, result[1]);
+        } */
     }
 }
 

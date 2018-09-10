@@ -85,12 +85,65 @@ namespace CustomListProject
           
             array = tempArray;
         }
-        //public override string ToString()
-        //{
-          
-            //return base.ToString() + ": " + value.ToString();
-        //}
+        
+        public static CustomList<T> operator+ (CustomList<T> x, CustomList<T> y)
+        {
+            CustomList<T> tempList = new CustomList<T>();
+            int firstListCount = tempList.Count;
+            
+
+            for (int i=0; i < x.Count; i++)
+            {                
+                tempList.Add(x[i]);
+                firstListCount = tempList.Count +1;
+                
+                
+            }
+            for (int i = 0; i < y.Count; i++)
+            {
+                tempList.Add(y[i + firstListCount]);
+              
+            }
+
+            return tempList;
+        }
+
+
+        //public override string ToString(input)
+        /*
+
+public class Object2
+    {
+        private object value;
+
+        public Object2(object value)
+        {
+            this.value = value;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ": " + value.ToString();
+        }
     }
+
+    public class Example
+    {
+        public static void Main()
+        {
+            Object2 obj2 = new Object2('a');
+            Console.WriteLine(obj2.ToString());
+        }
+    }
+    // The example displays the following output:
+    //       Object2: a
+    //{
+    //return string;
+    //} */
+        public class IEnumerable<T>
+        {
+    }
+}
 }
     
 
