@@ -11,7 +11,7 @@ namespace CustomListUnitTests
     public class UnitTest1
     {
 
-        
+
 
         [TestMethod]
         public void Add_CheckIfCountIncreases()
@@ -117,7 +117,7 @@ namespace CustomListUnitTests
             //arrange
             CustomList<int> test = new CustomList<int>();
             //act
-            for (int i= 0; i<100;i++)
+            for (int i = 0; i < 100; i++)
             {
                 test.Add(i);
             }
@@ -143,8 +143,8 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(expectedResult, test[0]);
         }
-         
-            [TestMethod]
+
+        [TestMethod]
         public void Remove_CheckIndexOne()
         {
             //arrange
@@ -217,7 +217,7 @@ namespace CustomListUnitTests
         public void ToString_CheckIndexZero()
         {
             //arrange
-           
+
             CustomList<int> test = new CustomList<int>();
             test.Add(1);
             test.Add(2);
@@ -298,10 +298,10 @@ namespace CustomListUnitTests
             test.Add(3);
             test.Add(4);
 
-        
+
             //act 
 
-            for (int i=0; i<test.Count; i++)
+            for (int i = 0; i < test.Count; i++)
             {
                 Console.WriteLine(i);
             }
@@ -310,25 +310,92 @@ namespace CustomListUnitTests
 
             //Assert.AreEqual(?,Console.WriteLine(4));
         }
-        
-        //[TestMethod]
-        //public void Zip_testNewListCount()
-        //{
-        //    //arrange
-        //    CustomList<int> even = new CustomList<int>();
-        //    even.Add(2);
-        //    even.Add(4);
-        //    even.Add(6);
 
-        //    CustomList<int> odd = new CustomList<int>();
-        //    odd.Add(1);
-        //    odd.Add(3);
-        //    odd.Add(5);
+        [TestMethod]
+        public void Zip_testNewListCount()
+        {
+            //arrange
+            CustomList<int> even = new CustomList<int>();
+            even.Add(2);
+            even.Add(4);
+            even.Add(6);
 
-        //    int expectedResult = 6;
-        //    //act
-        //    Assert.AreEqual(expectedResult, actual)
-        //} 
+            CustomList<int> odd = new CustomList<int>();
+            odd.Add(1);
+            odd.Add(3);
+            odd.Add(5);
+
+            CustomList<int> zippedList = new CustomList<int>();
+
+            int expectedResult = 6;
+            //act
+            Assert.AreEqual(expectedResult, zippedList.Count);
+        }
+        [TestMethod]
+        public void Zip_TestNewListAtIndexZero()
+        {
+            //arrange
+            CustomList<int> even = new CustomList<int>();
+            even.Add(2);
+            even.Add(4);
+            even.Add(6);
+
+            CustomList<int> odd = new CustomList<int>();
+            odd.Add(1);
+            odd.Add(3);
+            odd.Add(5);
+
+            CustomList<int> zippedList = new CustomList<int>();
+
+            int expectedResult = 1;
+            //act
+            Assert.AreEqual(expectedResult, zippedList[0]);
+        }
+        [TestMethod]
+        public void Zip_TestNewListAtIndexOne()
+        {
+            //arrange
+            CustomList<int> even = new CustomList<int>();
+            even.Add(2);
+            even.Add(4);
+            even.Add(6);
+
+            CustomList<int> odd = new CustomList<int>();
+            odd.Add(1);
+            odd.Add(3);
+            odd.Add(5);
+
+            CustomList<int> zippedList = new CustomList<int>();
+
+            int expectedResult = 2;
+            //act
+            Assert.AreEqual(expectedResult, zippedList[1]);
+        }
+        [TestMethod]
+        public void Zip_TestNewListAtIndexTwo()
+        {
+            //arrange
+            CustomList<int> even = new CustomList<int>();
+            even.Add(2);
+            even.Add(4);
+            even.Add(6);
+
+            CustomList<int> odd = new CustomList<int>();
+            odd.Add(1);
+            odd.Add(3);
+            odd.Add(5);
+
+            CustomList<int> zippedList = new CustomList<int>();
+
+            int expectedResult = 3;
+            //act
+            Assert.AreEqual(expectedResult, zippedList[2]);
+        }
+        [TestMethod]
+        public void Minus_CheckCount()
+        {
+
+        }
     }
 }
 
