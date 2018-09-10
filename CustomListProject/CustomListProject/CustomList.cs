@@ -10,10 +10,10 @@ namespace CustomListProject
     {
         //member variables
         private int count;
-        //Why won't this build when I try to use the variable "capactiy" inside of new array index.
-        public int capacity;
-        public T[] array;
+        private int capacity;
+        private T[] array;
 
+        //constructor
         public CustomList()
         {
             count = 0;
@@ -32,9 +32,9 @@ namespace CustomListProject
             count = count + 1; 
         }
 
-        //increase capacity needs to be able to double the space in array.  Will need to take the new array, copy
-        public void IncreaseCapacity()
+        private void IncreaseCapacity()
         {
+    
             T[] tempArray = new T[capacity * 2];
             for (int i =0; i<capacity; i++)
             {
@@ -44,8 +44,7 @@ namespace CustomListProject
             capacity = capacity * 2;
   
         }
-   
-            
+      
         // allow array (and list) to use indexer property
         public T this[int i]
         {
@@ -54,24 +53,37 @@ namespace CustomListProject
             }
             set {
                 array[i] = value;
-                Console.WriteLine(value);
             }
         }
 
-        // want to be able to count the total number of items in array.
-        //Trying to figure out how what I'm supposed to "set".  How does this even work?
         public int Count
         {
             get { return count; }
             
-            
         }
 
-        public object Coun { get; set; }
-
-        public void Remove()
+        public void Remove(T input)
         {
-
+            T[] tempArray = new T[capacity];
+            int tempCount = 0;
+            for (int i = 0; i < count; i++)
+            {
+                T index = array[i];
+                T passedInput = input;
+                if (index.Equals(passedInput))
+                {
+                    
+                }
+                else
+                {
+                    tempArray[tempCount] = array[i];
+                    tempCount++;
+                }
+            }
+            
+            count = tempCount;
+          
+            array = tempArray;
         }
     }
 }
