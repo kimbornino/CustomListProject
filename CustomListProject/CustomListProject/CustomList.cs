@@ -85,6 +85,11 @@ namespace CustomListProject
           
             array = tempArray;
         }
+        //public override string ToString()
+        //{
+          
+            //return base.ToString() + ": " + value.ToString();
+        //}
     }
 }
     
