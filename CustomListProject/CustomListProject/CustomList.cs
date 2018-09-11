@@ -161,17 +161,13 @@ namespace CustomListProject
         public static CustomList<T> Zip(CustomList<T> odd, CustomList<T> even)
         {
             CustomList<T> newList = new CustomList<T>();
-            int j = 0;
-
-            for (int i = 0; i < odd.Count; i++)
+            
+            for (int i = 0; i< Math.Min(odd.Count, even.Count); i++)
             {
+
                 newList.Add(odd[i]);
-                while ( j < even.Count) 
-                {
-                    newList.Add(even[j]);
-                    j++;
-                    break;
-                }
+                newList.Add(even[i]);
+               
             }
             return newList;
         }

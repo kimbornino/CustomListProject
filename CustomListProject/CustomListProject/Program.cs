@@ -25,7 +25,7 @@ namespace CustomListProject
             CustomList<string> result = CustomList<string>.Zip(lemon,onions);
 
 
-            Console.WriteLine();
+            Console.WriteLine(result);
 
             
             foreach (string banana in onions)

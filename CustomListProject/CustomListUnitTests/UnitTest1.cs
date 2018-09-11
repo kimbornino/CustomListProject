@@ -330,6 +330,7 @@ namespace CustomListUnitTests
             //Assert
             Assert.AreEqual(expectedResult, result.Count);
         }
+        //write test method for uneven lists[TestMethod]
         [TestMethod]
         public void Zip_TestNewListAtIndexZero()
         {
