@@ -311,7 +311,7 @@ namespace CustomListUnitTests
             //Assert.AreEqual(?,Console.WriteLine(4));
         }
         */
-        /*[TestMethod]
+        [TestMethod]
         public void Zip_testNewListCount()
         {
             //arrange
@@ -329,13 +329,16 @@ namespace CustomListUnitTests
 
             int expectedResult = 6;
             //act
+            zippedList.Zip(odd, even);
+            //Assert
             Assert.AreEqual(expectedResult, zippedList.Count);
         }
-        /*[TestMethod]
+        [TestMethod]
         public void Zip_TestNewListAtIndexZero()
         {
             //arrange
             CustomList<int> even = new CustomList<int>();
+           
             even.Add(2);
             even.Add(4);
             even.Add(6);
@@ -349,9 +352,12 @@ namespace CustomListUnitTests
 
             int expectedResult = 1;
             //act
+            zippedList.Zip(odd, even);
+
+            //assert
             Assert.AreEqual(expectedResult, zippedList[0]);
-        } */
-        /*[TestMethod]
+        } 
+        [TestMethod]
         public void Zip_TestNewListAtIndexOne()
         {
             //arrange
@@ -369,9 +375,11 @@ namespace CustomListUnitTests
 
             int expectedResult = 2;
             //act
+            zippedList.Zip(odd, even);
+            //assert
             Assert.AreEqual(expectedResult, zippedList[1]);
-        } */
-        /*[TestMethod]
+        } 
+        [TestMethod]
         public void Zip_TestNewListAtIndexTwo()
         {
             //arrange
@@ -389,8 +397,9 @@ namespace CustomListUnitTests
 
             int expectedResult = 3;
             //act
+
             Assert.AreEqual(expectedResult, zippedList[2]);
-        } */
+        } 
         [TestMethod]
         public void Plus_CheckCount()
         {
@@ -461,7 +470,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(expectedResult, result[3]);
         }
-        /*[TestMethod]
+        [TestMethod]
 
         public void Minus_CheckIndexZero()
         {
@@ -479,11 +488,11 @@ namespace CustomListUnitTests
             int expectedResult = 2;
 
             //act
-            //result = first - second;
+            result = first - second;
 
             //assert
             Assert.AreEqual(expectedResult, result[0]);
-        } /*
+        } 
         [TestMethod]
         public void Minus_CheckIndexOne()
         {
@@ -501,11 +510,11 @@ namespace CustomListUnitTests
             int expectedResult = 3;
 
             //act
-            //result = first - second;
+            result = first - second;
 
             //assert
             Assert.AreEqual(expectedResult, result[1]);
-        } */
+        } 
     }
 }
 

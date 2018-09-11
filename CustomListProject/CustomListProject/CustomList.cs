@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> : IEnumerator<T>
+    public class CustomList<T> //// IEnumerable
     {
         //member variables
         private int count;
@@ -86,23 +87,27 @@ namespace CustomListProject
             count = tempCount;
 
             array = tempArray;
+
         }
+
+        //public IEnumerator GetEnumerator()
+        //{
+            
+        //}
 
         public static CustomList<T> operator +(CustomList<T> x, CustomList<T> y)
         {
             CustomList<T> tempList = new CustomList<T>();
             int firstListCount = tempList.Count;
 
-
             for (int i = 0; i < x.Count; i++)
             {
                 tempList.Add(x[i]);
-                firstListCount = tempList.Count + 1;
-
+                //firstListCount = tempList.Count + 1;
             }
             for (int i = 0; i < y.Count; i++)
             {
-                tempList.Add(y[i + firstListCount]);
+                tempList.Add(y[i]);
 
             }
 
@@ -111,62 +116,51 @@ namespace CustomListProject
 
         public static CustomList<T> operator -(CustomList<T> x, CustomList<T> y)
         {
-            CustomList<T> tempList = new CustomList<T>();
+            //CustomList<T> tempList = new CustomList<T>();
 
             for (int i = 0; i < x.Count; i++)
             {
-                for (int j = 0; j < y.Count; i++)
+                for (int j = 0; j < y.Count; j++)
                 {
-                    if (i.Equals(j))
+                    if (x[i].Equals(y[j]))
                     {
-
+                        x.Remove(x[i]);
+                        
                     }
-                    else
-                    {
-                        tempList.Add(x[i]);
-
-                    }
-
-                }
-
+                }               
             }
-
-
-            return tempList;
+            return x;
         }
 
 
-        // public override string ToString(input)
-        /*
+        //public override string ToString()  
+        //{
 
-public class Object2
-    {
-        private object value;
+            //for (int i = 0; i < listToChange.Count; i++)
+            //{
+                //templist.Add.ToString(listToChange[i]);
+               
 
-        public Object2(object value)
+            //}
+            
+            //return tempList;
+               
+        //}
+        public CustomList<T> Zip(CustomList<T> odd, CustomList<T> even)
         {
-            this.value = value;
-        }
+            CustomList<T> newList = new CustomList<T>();
 
-        public override string ToString()
-        {
-            return base.ToString() + ": " + value.ToString();
+            for (int i = 0; i > odd.Count; i++)
+            {
+                newList.Add(odd[i]);
+                for (int j = 0; j > even.Count; i++)
+                {
+                    newList.Add(even[i]);
+                }
+            }
+            return newList;
         }
-    }
-
-    public class Example
-    {
-        public static void Main()
-        {
-            Object2 obj2 = new Object2('a');
-            Console.WriteLine(obj2.ToString());
-        }
-    }
-    // The example displays the following output:
-    //       Object2: a
-    //{
-    //return string;
-    //} */
+         
         /* public class CustomList<T> :
          {
              public CustomList<> list = new CustomList<T>();
