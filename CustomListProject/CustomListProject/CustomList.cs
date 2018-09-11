@@ -90,26 +90,20 @@ namespace CustomListProject
 
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            CustomList<T> list = new CustomList<T>();
-            for (int index = 0; index < list.Count; index ++)
+            for (int index = 0; index < this.Count; index ++)
             {
-                yield return list[index];
+                yield return this[index];
             }
         }
 
-        //public void Enumerate()
-        //{
-            //int i = 0;
-            //CustomList<T> list = new CustomList<T>();
-            //foreach (list[i] in list)
-            //{
-                //Console.WriteLine(list[i]);
-            //}     
-        //}
-            
-        
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+                   
         public static CustomList<T> operator +(CustomList<T> x, CustomList<T> y)
         {
             CustomList<T> tempList = new CustomList<T>();
@@ -146,20 +140,25 @@ namespace CustomListProject
             return x;
         }
 
-        //public override string ToString()  
-        //{
-
-            //for (int i = 0; i < listToChange.Count; i++)
+       public override string ToString()  
+        {
+            string newString = "";
+            foreach (T value in this)
+            {
+               string tempString = value.ToString();
+                newString += tempString;
+                newString += " , ";
+            }
+                return newString;
             //{
                 //templist.Add.ToString(listToChange[i]);
                
-
             //}
             
             //return tempList;
                
-        //}
-        public CustomList<T> Zip(CustomList<T> odd, CustomList<T> even)
+        }
+        public static CustomList<T> Zip(CustomList<T> odd, CustomList<T> even)
         {
             CustomList<T> newList = new CustomList<T>();
             int j = 0;

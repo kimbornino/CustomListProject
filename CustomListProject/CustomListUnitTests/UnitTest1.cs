@@ -176,7 +176,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(expectedResult, test.Count);
         }
-        /*[TestMethod]
+        [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Remove_nonexistentint()
         {
@@ -188,7 +188,7 @@ namespace CustomListUnitTests
             test.Add(4);
             //act
             test.Remove(7);
-        } */
+        } 
 
         [TestMethod]
         public void Remove_RemoveAllRepeats()
@@ -210,7 +210,7 @@ namespace CustomListUnitTests
             //assert 
             Assert.AreEqual(expectedResult, test.Count);
         }
-        /*[TestMethod]
+        [TestMethod]
 
         public void ToString_CheckIndexZero()
         {
@@ -228,7 +228,7 @@ namespace CustomListUnitTests
             test.ToString();
             //assert
             Assert.AreEqual(expectedResult, test[0]);
-        } */
+        } 
 
         [TestMethod]
 
@@ -249,7 +249,7 @@ namespace CustomListUnitTests
             Assert.AreEqual(expectedResult, test.Count);
         }
 
-       /* public void ToString_CheckIndexOne()
+        public void ToString_CheckIndexOne()
         {
             //arrange
             CustomList<int> test = new CustomList<int>();
@@ -264,9 +264,9 @@ namespace CustomListUnitTests
             test.ToString();
             //assert
             Assert.AreEqual(expectedResult, test[1]);
-        } */
+        } 
 
-        /*[TestMethod]
+        [TestMethod]
         public void ToString_CheckIndexFive()
         {
             //arrange
@@ -284,7 +284,7 @@ namespace CustomListUnitTests
             Assert.AreEqual(expectedResult, test[4]);
         }
 
-      /*  //do not know how to check this
+      /*  //do not know how to check this */
         [TestMethod]
         public void Itterable_PrintList()
         {
@@ -303,12 +303,9 @@ namespace CustomListUnitTests
             {
                 Console.WriteLine(i);
             }
-
-
-
             //Assert.AreEqual(?,Console.WriteLine(4));
         }
-        */
+        
         [TestMethod]
         public void Zip_testNewListCount()
         {
@@ -328,10 +325,10 @@ namespace CustomListUnitTests
             int expectedResult = 6;
             //act
 
-            CustomList<int> result = zippedList.Zip(odd, even);
+            CustomList<int> result = CustomList<int>.Zip(odd, even);
 
             //Assert
-            Assert.AreEqual(expectedResult, zippedList.Count);
+            Assert.AreEqual(expectedResult, result.Count);
         }
         [TestMethod]
         public void Zip_TestNewListAtIndexZero()
@@ -348,18 +345,17 @@ namespace CustomListUnitTests
             odd.Add(3);
             odd.Add(5);
 
-            CustomList<int> zippedList = new CustomList<int>();
 
             int expectedResult = 1;
             //act
-            CustomList<int> result = zippedList.Zip(odd, even);
+            CustomList<int> result = CustomList<int>.Zip(odd, even);
 
             //assert
-            Assert.AreEqual(expectedResult, zippedList[0]);
+            Assert.AreEqual(expectedResult, result[0]);
         } 
         [TestMethod]
         public void Zip_TestNewListAtIndexOne()
-        {
+        { 
             //arrange
             CustomList<int> even = new CustomList<int>();
             even.Add(2);
@@ -372,11 +368,12 @@ namespace CustomListUnitTests
             odd.Add(5);
 
             int expectedResult = 2;
-            CustomList<int> zippedList = new CustomList<int>();
+            
             //act
-            CustomList<int> result = zippedList.Zip(odd, even);
+            CustomList<int> result = CustomList<int>.Zip(odd, even);
+
             //assert
-            Assert.AreEqual(expectedResult, zippedList[1]);
+            Assert.AreEqual(expectedResult, result[1]);
         } 
         [TestMethod]
         public void Zip_TestNewListAtIndexTwo()
@@ -396,10 +393,10 @@ namespace CustomListUnitTests
 
             int expectedResult = 3;
             //act
-            CustomList<int> result = zippedList.Zip(odd, even);
+            CustomList<int> result = CustomList<int>.Zip(odd, even);
 
             //assert
-            Assert.AreEqual(expectedResult, zippedList[2]);
+            Assert.AreEqual(expectedResult, result[2]);
         } 
         [TestMethod]
         public void Plus_CheckCount()
