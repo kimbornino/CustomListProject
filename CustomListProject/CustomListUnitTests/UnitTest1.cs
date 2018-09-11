@@ -11,8 +11,6 @@ namespace CustomListUnitTests
     public class UnitTest1
     {
 
-
-
         [TestMethod]
         public void Add_CheckIfCountIncreases()
         {
@@ -329,8 +327,9 @@ namespace CustomListUnitTests
 
             int expectedResult = 6;
             //act
-            zippedList= CustomList<int>.Zip(odd, even);
-            
+
+            CustomList<int> result = zippedList.Zip(odd, even);
+
             //Assert
             Assert.AreEqual(expectedResult, zippedList.Count);
         }
@@ -353,7 +352,7 @@ namespace CustomListUnitTests
 
             int expectedResult = 1;
             //act
-            zippedList.Zip(odd, even);
+            CustomList<int> result = zippedList.Zip(odd, even);
 
             //assert
             Assert.AreEqual(expectedResult, zippedList[0]);
@@ -372,11 +371,10 @@ namespace CustomListUnitTests
             odd.Add(3);
             odd.Add(5);
 
-            CustomList<int> zippedList = new CustomList<int>();
-
             int expectedResult = 2;
+            CustomList<int> zippedList = new CustomList<int>();
             //act
-            zippedList.Zip(odd, even);
+            CustomList<int> result = zippedList.Zip(odd, even);
             //assert
             Assert.AreEqual(expectedResult, zippedList[1]);
         } 
@@ -398,7 +396,9 @@ namespace CustomListUnitTests
 
             int expectedResult = 3;
             //act
+            CustomList<int> result = zippedList.Zip(odd, even);
 
+            //assert
             Assert.AreEqual(expectedResult, zippedList[2]);
         } 
         [TestMethod]

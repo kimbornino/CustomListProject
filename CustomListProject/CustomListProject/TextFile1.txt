@@ -1,1 +1,95 @@
-﻿
+﻿PLUS OPERATOR
+------------------------------
+The plus operator's override function is used to combine lists together. 
+It combines the lists by creating a new list.  The new list first takes in each item in the first list.  
+It then starts adding the second list at the next available index.  The lists are passed in through the parameters.  
+The method's return type is a CustomList that will save to a variable the user creates. CustomList is a class that is 
+different than "List," but like List, it uses an underlying framework of array, and also contains some of the same
+methods and properties such as "Add" and "Remove."
+
+This is the syntax of the override.  It is being instantiated in a class called CustomList. 
+ 
+public static CustomList<T> operator +(CustomList<T> x, CustomList<T> y)
+        {
+            CustomList<T> tempList = new CustomList<T>();
+            int firstListCount = tempList.Count;
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                tempList.Add(x[i]);
+            }
+            for (int i = 0; i < y.Count; i++)
+            {
+                tempList.Add(y[i]);
+
+            }
+
+            return tempList;
+        }
+ Here is an example of the function being called to take in two Customlists:
+ 
+  [TestMethod]
+        public void Plus_CheckIndexZero()
+        {
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
+
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(5);
+            second.Add(6);
+
+            CustomList<int> result = new CustomList<int>();
+            int expectedResult = 1;
+
+            result = first + second;
+
+			//expected output {1, 2, 3, 4, 5, 6,}
+
+MINUS OPERATOR
+---------------------
+The minus operator's override function is used to subtract items in a second list FROM the first list.
+It takes two paremeters.  (<T> Item to Subtract from, <> Item to subtract).  The returned array will be a modified
+form if the list passed into the first parameter.  Under the hood, the program is building a new list that will be 
+reassigned to the variable name of the first list.
+
+This the synatax of the override.  It is being instantiated in a class called CustomList. 
+
+ public static CustomList<T> operator -(CustomList<T> x, CustomList<T> y)
+        {
+            //CustomList<T> tempList = new CustomList<T>();
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                for (int j = 0; j < y.Count; j++)
+                {
+                    if (x[i].Equals(y[j]))
+                    {
+                        x.Remove(x[i]);
+                        
+                    }
+                }               
+            }
+            return x;
+        }
+Here is an example of the function being used to subtract values from a list passed in through the parameter.
+
+        {
+            CustomList<int> first = new CustomList<int>();
+            first.Add(1);
+            first.Add(2);
+            first.Add(3);
+
+            CustomList<int> second = new CustomList<int>();
+            second.Add(4);
+            second.Add(1);
+            second.Add(6);
+
+            CustomList<int> result = new CustomList<int>();
+            int expectedResult = 2;
+
+            result = first - second; // {2,3}  
+
+          

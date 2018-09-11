@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> //// IEnumerable
+    public class CustomList<T> : IEnumerable
     {
         //member variables
         private int count;
@@ -90,11 +90,26 @@ namespace CustomListProject
 
         }
 
-        //public IEnumerator GetEnumerator()
-        //{
-            
-        //}
+        public IEnumerator GetEnumerator()
+        {
+            CustomList<T> list = new CustomList<T>();
+            for (int index = 0; index < list.Count; index ++)
+            {
+                yield return list[index];
+            }
+        }
 
+        //public void Enumerate()
+        //{
+            //int i = 0;
+            //CustomList<T> list = new CustomList<T>();
+            //foreach (list[i] in list)
+            //{
+                //Console.WriteLine(list[i]);
+            //}     
+        //}
+            
+        
         public static CustomList<T> operator +(CustomList<T> x, CustomList<T> y)
         {
             CustomList<T> tempList = new CustomList<T>();
@@ -131,7 +146,6 @@ namespace CustomListProject
             return x;
         }
 
-
         //public override string ToString()  
         //{
 
@@ -162,24 +176,6 @@ namespace CustomListProject
             }
             return newList;
         }
-         
-        /* public class CustomList<T> :
-         {
-             public CustomList<> list = new CustomList<T>();
-             for (int i=0; i < CustomList.Count; i++)  
-                 {
-                 Console.WriteLine(list);
-                 }
-         //get Enumerator Method
-         IEnumerator IEnumberable.GetEnumerator()
-         {
-             return (IEnumerator) GetEnumerator
-         }
-         public CustomList GetEnumerator()
-         {
-             return new CustomList(list);
-         }
-     } */
     }
 }
 
