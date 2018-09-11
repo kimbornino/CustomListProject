@@ -103,7 +103,6 @@ namespace CustomListProject
             for (int i = 0; i < x.Count; i++)
             {
                 tempList.Add(x[i]);
-                //firstListCount = tempList.Count + 1;
             }
             for (int i = 0; i < y.Count; i++)
             {
@@ -149,13 +148,16 @@ namespace CustomListProject
         public CustomList<T> Zip(CustomList<T> odd, CustomList<T> even)
         {
             CustomList<T> newList = new CustomList<T>();
+            int j = 0;
 
-            for (int i = 0; i > odd.Count; i++)
+            for (int i = 0; i < odd.Count; i++)
             {
                 newList.Add(odd[i]);
-                for (int j = 0; j > even.Count; i++)
+                while ( j < even.Count) 
                 {
-                    newList.Add(even[i]);
+                    newList.Add(even[j]);
+                    j++;
+                    break;
                 }
             }
             return newList;

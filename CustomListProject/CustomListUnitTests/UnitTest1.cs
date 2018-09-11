@@ -329,7 +329,8 @@ namespace CustomListUnitTests
 
             int expectedResult = 6;
             //act
-            zippedList.Zip(odd, even);
+            zippedList= CustomList<int>.Zip(odd, even);
+            
             //Assert
             Assert.AreEqual(expectedResult, zippedList.Count);
         }
