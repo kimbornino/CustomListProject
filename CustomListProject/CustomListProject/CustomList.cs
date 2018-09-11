@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerator<T>
     {
         //member variables
         private int count;
@@ -21,7 +21,7 @@ namespace CustomListProject
             array = new T[capacity];
         }
         //methods and properties
-       
+
         public void Add(T input)
         {
             if (count >= capacity)
@@ -29,29 +29,31 @@ namespace CustomListProject
                 IncreaseCapacity();
             }
             array[count] = input;
-            count = count + 1; 
+            count = count + 1;
         }
 
         private void IncreaseCapacity()
         {
-    
+
             T[] tempArray = new T[capacity * 2];
-            for (int i =0; i<capacity; i++)
+            for (int i = 0; i < capacity; i++)
             {
                 tempArray[i] = array[i];
             }
             array = tempArray;
             capacity = capacity * 2;
-  
+
         }
-      
+
         // allow array (and list) to use indexer property
         public T this[int i]
         {
-            get {
+            get
+            {
                 return array[i];
             }
-            set {
+            set
+            {
                 array[i] = value;
             }
         }
@@ -59,7 +61,7 @@ namespace CustomListProject
         public int Count
         {
             get { return count; }
-            
+
         }
 
         public void Remove(T input)
@@ -72,7 +74,7 @@ namespace CustomListProject
                 T passedInput = input;
                 if (index.Equals(passedInput))
                 {
-                    
+
                 }
                 else
                 {
@@ -80,36 +82,61 @@ namespace CustomListProject
                     tempCount++;
                 }
             }
-            
+
             count = tempCount;
-          
+
             array = tempArray;
         }
-        
-        public static CustomList<T> operator+ (CustomList<T> x, CustomList<T> y)
+
+        public static CustomList<T> operator +(CustomList<T> x, CustomList<T> y)
         {
             CustomList<T> tempList = new CustomList<T>();
             int firstListCount = tempList.Count;
-            
 
-            for (int i=0; i < x.Count; i++)
-            {                
+
+            for (int i = 0; i < x.Count; i++)
+            {
                 tempList.Add(x[i]);
-                firstListCount = tempList.Count +1;
-                
-                
+                firstListCount = tempList.Count + 1;
+
             }
             for (int i = 0; i < y.Count; i++)
             {
                 tempList.Add(y[i + firstListCount]);
-              
+
             }
 
             return tempList;
         }
 
+        public static CustomList<T> operator -(CustomList<T> x, CustomList<T> y)
+        {
+            CustomList<T> tempList = new CustomList<T>();
 
-        //public override string ToString(input)
+            for (int i = 0; i < x.Count; i++)
+            {
+                for (int j = 0; j < y.Count; i++)
+                {
+                    if (i.Equals(j))
+                    {
+
+                    }
+                    else
+                    {
+                        tempList.Add(x[i]);
+
+                    }
+
+                }
+
+            }
+
+
+            return tempList;
+        }
+
+
+        // public override string ToString(input)
         /*
 
 public class Object2
@@ -140,11 +167,26 @@ public class Object2
     //{
     //return string;
     //} */
-        public class IEnumerable<T>
-        {
+        /* public class CustomList<T> :
+         {
+             public CustomList<> list = new CustomList<T>();
+             for (int i=0; i < CustomList.Count; i++)  
+                 {
+                 Console.WriteLine(list);
+                 }
+         //get Enumerator Method
+         IEnumerator IEnumberable.GetEnumerator()
+         {
+             return (IEnumerator) GetEnumerator
+         }
+         public CustomList GetEnumerator()
+         {
+             return new CustomList(list);
+         }
+     } */
     }
 }
-}
+
     
 
    
