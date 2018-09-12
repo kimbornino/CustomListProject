@@ -124,7 +124,6 @@ namespace CustomListProject
 
         public static CustomList<T> operator -(CustomList<T> x, CustomList<T> y)
         {
-            //CustomList<T> tempList = new CustomList<T>();
 
             for (int i = 0; i < x.Count; i++)
             {
@@ -149,15 +148,9 @@ namespace CustomListProject
                 newString += tempString;
                 newString += " , ";
             }
-                return newString;
-            //{
-                //templist.Add.ToString(listToChange[i]);
-               
-            //}
-            
-            //return tempList;
-               
+                return newString;      
         }
+
         public static CustomList<T> Zip(CustomList<T> odd, CustomList<T> even)
         {
             CustomList<T> newList = new CustomList<T>();

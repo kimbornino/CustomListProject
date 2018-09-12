@@ -212,10 +212,54 @@ namespace CustomListUnitTests
         }
         [TestMethod]
 
-        public void ToString_CheckIndexZero()
+        public void ToString_CheckNewResult()
         {
             //arrange
 
+            CustomList<int> test = new CustomList<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            string expectedResult = "1 , 2 , 2 , 3 , 4 , ";
+
+            // act
+            string actual = test.ToString();
+            //assert
+            Assert.AreEqual(expectedResult, actual);
+        } 
+
+        [TestMethod]
+
+        public void ToString_CheckLargerCount()
+        {
+            //arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            test.Add(5);
+            test.Add(6);
+            test.Add(7);
+            test.Add(8);
+            test.Add(9);
+            test.Add(10);
+            test.Add(11);
+            string expectedResult = "1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , ";
+
+            //act
+            //test.ToString();
+
+            // assert
+            Assert.AreEqual(expectedResult, test.ToString());
+        }
+
+        [TestMethod]
+        public void ToString_CheckIindividualString()
+        {
+            //arrange
             CustomList<int> test = new CustomList<int>();
             test.Add(1);
             test.Add(2);
@@ -224,46 +268,17 @@ namespace CustomListUnitTests
             test.Add(4);
             string expectedResult = "1";
 
-            // act
-            test.ToString();
-            //assert
-            Assert.AreEqual(expectedResult, test[0]);
-        } 
-
-        [TestMethod]
-
-        public void ToString_CheckCount()
-        {
-            //arrange
-            CustomList<int> test = new CustomList<int>();
-            test.Add(1);
-            test.Add(2);
-            test.Add(3);
-            test.Add(4);
-            int expectedResult = 4;
-
             //act
-            test.ToString();
+           for (int i = 0; i < 1; i++)
+            {
 
-            // assert
-            Assert.AreEqual(expectedResult, test.Count);
-        }
-
-        public void ToString_CheckIndexOne()
-        {
-            //arrange
-            CustomList<int> test = new CustomList<int>();
-            test.Add(1);
-            test.Add(2);
-            test.Add(2);
-            test.Add(3);
-            test.Add(4);
-            string expectedResult = "2";
+            }
 
             // act
             test.ToString();
+         
             //assert
-            Assert.AreEqual(expectedResult, test[1]);
+            Assert.AreEqual(expectedResult, test.ToString());
         } 
 
         [TestMethod]
