@@ -45,8 +45,7 @@ namespace CustomListProject
             capacity = capacity * 2;
 
         }
-
-        // allow array (and list) to use indexer property
+        // allows array (and list) to use indexer property
         public T this[int i]
         {
             get
@@ -62,7 +61,6 @@ namespace CustomListProject
         public int Count
         {
             get { return count; }
-
         }
 
         public void Remove(T input)
@@ -83,13 +81,11 @@ namespace CustomListProject
                     tempCount++;
                 }
             }
-
             count = tempCount;
-
             array = tempArray;
-
         }
 
+        //These are the two methods that must be implemented when using the IEnumberable interface.
         public IEnumerator<T> GetEnumerator()
         {
             for (int index = 0; index < this.Count; index ++)
@@ -132,7 +128,6 @@ namespace CustomListProject
                     if (x[i].Equals(y[j]))
                     {
                         x.Remove(x[i]);
-                        
                     }
                 }               
             }

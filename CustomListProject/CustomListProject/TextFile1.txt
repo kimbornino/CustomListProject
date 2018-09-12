@@ -52,7 +52,7 @@ MINUS OPERATOR
 ---------------------
 The minus operator's override function is used to subtract items in a second list FROM the first list.
 It takes two paremeters.  (<T> Item to Subtract from, <> Item to subtract).  The returned array will be a modified
-form if the list passed into the first parameter.  Under the hood, the program is building a new list that will be 
+form of the list passed into the first parameter.  Under the hood, the program is building a new list that will be 
 reassigned to the variable name of the first list.
 
 This the synatax of the override.  It is being instantiated in a class called CustomList. 
